@@ -14,10 +14,16 @@ const TABS = [
   { id: 'pnl', label: '💰 손익 현황' },
 ];
 
-export default function KrwCalculator() {
-  const [initPrice, setInitPrice] = useState('');
-  const [initShares, setInitShares] = useState('');
-  const [rounds, setRounds] = useState<Round[]>([]);
+interface Props {
+  initPrice: string;
+  initShares: string;
+  rounds: Round[];
+  onInitPriceChange: (v: string) => void;
+  onInitSharesChange: (v: string) => void;
+  onRoundsChange: (rounds: Round[]) => void;
+}
+
+export default function KrwCalculator({ initPrice, initShares, rounds, onInitPriceChange, onInitSharesChange, onRoundsChange }: Props) {
   const [activeTab, setActiveTab] = useState<KrwTab>('simulation');
 
   const initPriceNum = parseFloat(initPrice) || 0;
@@ -28,8 +34,8 @@ export default function KrwCalculator() {
       <KrwHoldingCard
         price={initPrice}
         shares={initShares}
-        onPriceChange={setInitPrice}
-        onSharesChange={setInitShares}
+        onPriceChange={onInitPriceChange}
+        onSharesChange={onInitSharesChange}
       />
       <TabBar tabs={TABS} activeId={activeTab} onChange={(id) => setActiveTab(id as KrwTab)} />
 
@@ -38,9 +44,9 @@ export default function KrwCalculator() {
           initPrice={initPriceNum}
           initShares={initSharesNum}
           rounds={rounds}
-          onAdd={(r) => setRounds((prev) => [...prev, r])}
-          onRemove={(idx) => setRounds((prev) => prev.filter((_, i) => i !== idx))}
-          onClear={() => setRounds([])}
+          onAdd={(r) => onRoundsChange([...rounds, r])}
+          onRemove={(idx) => onRoundsChange(rounds.filter((_, i) => i !== idx))}
+          onClear={() => onRoundsChange([])}
         />
       )}
       {activeTab === 'reverse' && (

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import TabBar from '@/components/ui/TabBar';
 import ExchangeRateCard from './ExchangeRateCard';
 import UsdHoldingCard from './UsdHoldingCard';
@@ -16,11 +16,17 @@ const TABS = [
   { id: 'd-pnl', label: '💰 손익 현황' },
 ];
 
-export default function UsdCalculator() {
+interface Props {
+  initPrice: string;
+  initShares: string;
+  rounds: Round[];
+  onInitPriceChange: (v: string) => void;
+  onInitSharesChange: (v: string) => void;
+  onRoundsChange: (rounds: Round[]) => void;
+}
+
+export default function UsdCalculator({ initPrice, initShares, rounds, onInitPriceChange, onInitSharesChange, onRoundsChange }: Props) {
   const { rate, updateRate, status, updatedAt, refetch } = useExchangeRate();
-  const [initPrice, setInitPrice] = useState('');
-  const [initShares, setInitShares] = useState('');
-  const [rounds, setRounds] = useState<Round[]>([]);
   const [activeTab, setActiveTab] = useState<UsdTab>('d-simulation');
 
   useEffect(() => { refetch(); }, [refetch]);
@@ -35,8 +41,8 @@ export default function UsdCalculator() {
         price={initPrice}
         shares={initShares}
         exchangeRate={rate}
-        onPriceChange={setInitPrice}
-        onSharesChange={setInitShares}
+        onPriceChange={onInitPriceChange}
+        onSharesChange={onInitSharesChange}
       />
       <TabBar tabs={TABS} activeId={activeTab} onChange={(id) => setActiveTab(id as UsdTab)} />
 
@@ -46,9 +52,9 @@ export default function UsdCalculator() {
           initShares={initSharesNum}
           rounds={rounds}
           exchangeRate={rate}
-          onAdd={(r) => setRounds((prev) => [...prev, r])}
-          onRemove={(idx) => setRounds((prev) => prev.filter((_, i) => i !== idx))}
-          onClear={() => setRounds([])}
+          onAdd={(r) => onRoundsChange([...rounds, r])}
+          onRemove={(idx) => onRoundsChange(rounds.filter((_, i) => i !== idx))}
+          onClear={() => onRoundsChange([])}
         />
       )}
       {activeTab === 'd-reverse' && (

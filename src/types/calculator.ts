@@ -18,3 +18,13 @@ export interface TabDef {
   id: string;
   label: string;
 }
+
+export interface SavedStock {
+  id: string;
+  name: string;
+  currency: Currency;
+  initPrice: number;
+  initShares: number;
+  rounds: Round[];
+  savedAt: number;
+}
