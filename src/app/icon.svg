@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <!-- Background -->
+  <rect width="32" height="32" rx="8" fill="#1a56db"/>
+  <!-- Stock price line: starts high, trends down (blue = loss) -->
+  <polyline
+    points="3,8 10,13 17,20 29,12"
+    stroke="white"
+    stroke-width="2.5"
+    fill="none"
+    stroke-linecap="round"
+    stroke-linejoin="round"/>
+  <!-- Average price line: horizontal dashed yellow (물타기 평균단가) -->
+  <line x1="3" y1="16" x2="29" y2="16"
+    stroke="#fbbf24"
+    stroke-width="1.5"
+    stroke-dasharray="3,2"/>
+  <!-- Entry point dot (top-left, white) -->
+  <circle cx="3" cy="8" r="2" fill="white"/>
+  <!-- Bottom (dip) dot — yellow, where averaging happens -->
+  <circle cx="17" cy="20" r="2.5" fill="#fbbf24"/>
+  <!-- Latest price dot (right, green = potential recovery) -->
+  <circle cx="29" cy="12" r="2" fill="#4ade80"/>
+</svg>
