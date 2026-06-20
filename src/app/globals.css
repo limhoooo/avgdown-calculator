@@ -333,6 +333,7 @@ input[type='number']:focus {
   gap: 6px;
 }
 .btn-primary { background: var(--primary); color: white; box-shadow: 0 2px 8px rgba(59, 130, 246, 0.25); }
+.input-row + .btn { margin-top: 12px; }
 .btn-primary:hover { background: var(--primary-dark); transform: translateY(-1px); }
 .btn-primary:active { transform: translateY(0); }
 .btn-ghost { background: var(--toggle-bg); color: var(--text-muted); font-size: 13px; padding: 10px; }
@@ -691,6 +692,34 @@ tbody tr:last-child td { border-bottom: none; }
   .app-desc-grid { grid-template-columns: 1fr; }
 }
 
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  /* 컨트롤 버튼이 헤더 텍스트와 겹치지 않도록 padding-top 확보 */
+  .header {
+    padding-top: 66px;
+  }
+  .header h1 { font-size: 22px; }
+}
+
+@media (max-width: 400px) {
+  .header {
+    padding-top: 72px;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+  .header h1 { font-size: 19px; }
+  .header p  { font-size: 12px; }
+  /* 버튼 크기 축소 */
+  .header-controls { right: 10px; gap: 4px; }
+  .theme-toggle { padding: 5px 9px; font-size: 11px; }
+  .lang-toggle  { padding: 5px 8px; font-size: 11px; }
+  /* 네비게이션 링크 축소 */
+  .header-nav { gap: 4px; margin-top: 10px; }
+  .header-nav-link { font-size: 11px; padding: 4px 9px; }
+  /* 컨테이너 패딩 */
+  .container { padding: 10px; }
+}
+
 /* ── About / Privacy pages ── */
 .back-link {
   display: inline-flex;
@@ -776,4 +805,9 @@ tbody tr:last-child td { border-bottom: none; }
   .input-row { grid-template-columns: 1fr; }
   .result-grid { grid-template-columns: 1fr; }
   .tab { font-size: 12px; padding: 9px 4px; }
+  /* 테이블 글자 축소 */
+  .sim-table th,
+  .sim-table td { font-size: 11px; padding: 7px 6px; }
+  /* 토글 버튼 */
+  .toggle-btn { font-size: 13px; }
 }
