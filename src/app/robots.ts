@@ -1,6 +1,9 @@
 import type { MetadataRoute } from 'next';
 
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? 'https://yourdomain.com';
+export const dynamic = 'force-static';
+
+const BASE_URL =
+  process.env.NEXT_PUBLIC_BASE_URL ?? 'https://avgdown-calculator.pages.dev';
 
 export default function robots(): MetadataRoute.Robots {
   return {
