@@ -3,8 +3,8 @@ export type Lang = 'ko' | 'en';
 const ko = {
   langSwitch: '🇺🇸 English',
   themeDark: '🌙 Dark', themeLight: '☀️ Light',
-  title: '📉 물타기 계산기',
-  subtitle: '주식 평균단가 계산 · 시뮬레이션 · 손익 분석',
+  title: '자산인사이트',
+  subtitle: '물타기 계산기 · 주식 평균단가 계산 · 시뮬레이션',
   navGuide: '물타기 가이드', navFaq: 'FAQ', navAbout: '서비스 소개', navPrivacy: '개인정보처리방침',
 
   currencyKrw: '원화 (KRW)', currencyUsd: '달러 (USD)',
@@ -95,8 +95,8 @@ const ko = {
 const en: typeof ko = {
   langSwitch: '🇰🇷 Korea',
   themeDark: '🌙 Dark', themeLight: '☀️ Light',
-  title: '📉 Avg. Down Calculator',
-  subtitle: 'Stock Avg. Price · Simulation · P&L Analysis',
+  title: 'Asset Insight',
+  subtitle: 'Avg. Down Calculator · Stock Avg. Price · Simulation',
   navGuide: 'Guide', navFaq: 'FAQ', navAbout: 'About', navPrivacy: 'Privacy',
 
   currencyKrw: 'KRW', currencyUsd: 'USD',

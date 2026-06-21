@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? 'https://avgdown-calculator.pages.dev';
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? 'https://assetinsight.pages.dev';
 
 export const metadata: Metadata = {
   title: '자주 묻는 질문 (FAQ) | 물타기 계산기',
@@ -129,7 +129,7 @@ export default function FaqPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
     <main className="container" style={{ paddingTop: '24px', paddingBottom: '40px' }}>
-      <Link href="/" className="back-link">← 계산기로 돌아가기</Link>
+      <Link href="/avgdown" className="back-link">← 계산기로 돌아가기</Link>
 
       <div className="card" style={{ marginTop: '16px' }}>
         <h1 style={{ fontSize: '22px', fontWeight: 800, marginBottom: '8px' }}>자주 묻는 질문 (FAQ)</h1>

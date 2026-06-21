@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? 'https://avgdown-calculator.pages.dev';
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? 'https://assetinsight.pages.dev';
 
 export const metadata: Metadata = {
   title: '미국주식 물타기 계산기 - 달러 평균단가 낮추기 | 물타기 계산기',
@@ -30,7 +30,7 @@ export default function UsStocksPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <main className="container" style={{ paddingTop: '24px', paddingBottom: '40px' }}>
-        <Link href="/" className="back-link">← 계산기로 돌아가기</Link>
+        <Link href="/avgdown" className="back-link">← 계산기로 돌아가기</Link>
 
         <div className="card" style={{ marginTop: '16px' }}>
           <h1 style={{ fontSize: '22px', fontWeight: 800, marginBottom: '8px' }}>미국주식 물타기 계산기 — 달러 평균단가 낮추기</h1>
@@ -129,7 +129,7 @@ export default function UsStocksPage() {
         </div>
 
         <div style={{ textAlign: 'center', marginTop: '8px' }}>
-          <Link href="/" className="btn btn-primary" style={{ display: 'inline-flex', width: 'auto', padding: '13px 32px', textDecoration: 'none' }}>
+          <Link href="/avgdown" className="btn btn-primary" style={{ display: 'inline-flex', width: 'auto', padding: '13px 32px', textDecoration: 'none' }}>
             미국주식 물타기 계산기 바로 사용하기 →
           </Link>
         </div>

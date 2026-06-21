@@ -70,6 +70,104 @@ body {
   padding-bottom: 40px;
 }
 
+/* ── Hub (자산인사이트 홈) ── */
+.hub-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.hub-header {
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 60%, #1d4ed8 100%);
+  color: white;
+  text-align: center;
+  padding: 56px 20px 48px;
+}
+.hub-title {
+  font-size: 36px;
+  font-weight: 900;
+  letter-spacing: -1px;
+}
+.hub-subtitle {
+  font-size: 15px;
+  opacity: 0.7;
+  margin-top: 8px;
+}
+.hub-section-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 12px;
+}
+.hub-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.hub-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: var(--shadow);
+}
+.hub-card-link {
+  text-decoration: none;
+  color: inherit;
+  transition: box-shadow 0.15s, transform 0.15s;
+  cursor: pointer;
+}
+.hub-card-link:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+.hub-card-soon {
+  opacity: 0.55;
+}
+.hub-card-emoji {
+  font-size: 32px;
+  flex-shrink: 0;
+}
+.hub-card-body {
+  flex: 1;
+}
+.hub-card-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+.hub-card-desc {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+.hub-card-arrow {
+  font-size: 18px;
+  color: var(--primary);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.hub-card-badge {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-muted);
+  background: var(--border);
+  border-radius: 20px;
+  padding: 3px 10px;
+  flex-shrink: 0;
+}
+.hub-footer {
+  margin-top: auto;
+  padding: 24px 16px;
+  text-align: center;
+  border-top: 1px solid var(--border);
+}
+
 .header {
   background: linear-gradient(135deg, #1e3a8a 0%, #1a56db 60%, #2563eb 100%);
   color: white;
