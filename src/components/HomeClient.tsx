@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import Header from '@/components/Header';
 import CurrencyToggle from '@/components/CurrencyToggle';
 import PortfolioCard from '@/components/PortfolioCard';
@@ -56,6 +57,7 @@ export default function HomeClient() {
     <>
       <Header subtitle={t.avgdownSubtitle} description={t.avgdownDesc} navLinks={navLinks} />
       <main className="container">
+        <Link href="/" className="back-link">← 자산인사이트 홈</Link>
         <CurrencyToggle currency={currency} onChange={setCurrency} />
         <PortfolioCard
           stocks={stocks}

@@ -46,6 +46,31 @@ const CALCULATORS = [
   },
 ];
 
+const FINANCE_FLOATS = [
+  { left: '4%',  symbol: '₩', duration: 7.5, delay: 0.0 },
+  { left: '13%', symbol: '$', duration: 9.0, delay: 1.5 },
+  { left: '23%', symbol: '%', duration: 8.0, delay: 0.8 },
+  { left: '35%', symbol: '▲', duration: 10.0, delay: 2.5 },
+  { left: '46%', symbol: '+', duration: 7.0, delay: 0.3 },
+  { left: '57%', symbol: '↗', duration: 8.5, delay: 1.8 },
+  { left: '68%', symbol: '$', duration: 9.5, delay: 3.2 },
+  { left: '78%', symbol: '₩', duration: 7.5, delay: 1.0 },
+  { left: '87%', symbol: '%', duration: 8.0, delay: 2.0 },
+  { left: '95%', symbol: '▲', duration: 6.5, delay: 0.5 },
+];
+
+const CHART_BARS = [
+  { delay: 0.0, dur: 2.4, h: 40 }, { delay: 0.3, dur: 3.1, h: 65 },
+  { delay: 0.6, dur: 2.7, h: 50 }, { delay: 0.1, dur: 3.3, h: 75 },
+  { delay: 0.9, dur: 2.5, h: 45 }, { delay: 0.4, dur: 2.9, h: 60 },
+  { delay: 0.7, dur: 3.0, h: 80 }, { delay: 0.2, dur: 2.6, h: 55 },
+  { delay: 1.0, dur: 3.2, h: 70 }, { delay: 0.5, dur: 2.8, h: 35 },
+  { delay: 0.8, dur: 2.4, h: 50 }, { delay: 0.3, dur: 3.1, h: 65 },
+  { delay: 1.1, dur: 2.7, h: 45 }, { delay: 0.6, dur: 3.0, h: 55 },
+  { delay: 0.2, dur: 2.5, h: 70 }, { delay: 0.9, dur: 2.9, h: 40 },
+  { delay: 0.4, dur: 2.6, h: 60 }, { delay: 1.2, dur: 3.2, h: 35 },
+];
+
 export default function HubPage() {
   return (
     <>
@@ -55,6 +80,26 @@ export default function HubPage() {
       />
       <div className="hub-page">
         <header className="hub-header">
+          <div className="hub-anim" aria-hidden="true">
+            {FINANCE_FLOATS.map((f, i) => (
+              <span
+                key={i}
+                className="hub-float"
+                style={{ left: f.left, animationDuration: `${f.duration}s`, animationDelay: `${f.delay}s` }}
+              >
+                {f.symbol}
+              </span>
+            ))}
+            <div className="hub-chart">
+              {CHART_BARS.map((b, i) => (
+                <div
+                  key={i}
+                  className="hub-chart-bar"
+                  style={{ animationDelay: `${b.delay}s`, animationDuration: `${b.dur}s`, height: `${b.h}%` }}
+                />
+              ))}
+            </div>
+          </div>
           <h1 className="hub-title">자산인사이트</h1>
           <p className="hub-subtitle">투자자를 위한 스마트 계산기 모음</p>
         </header>
@@ -85,15 +130,6 @@ export default function HubPage() {
             )}
           </div>
         </main>
-
-        <footer className="hub-footer">
-          <nav className="footer-nav">
-            <Link href="/about" className="footer-link">서비스 소개</Link>
-            <span className="footer-sep">·</span>
-            <Link href="/privacy" className="footer-link">개인정보처리방침</Link>
-          </nav>
-          <p className="footer-copy">© {new Date().getFullYear()} 자산인사이트</p>
-        </footer>
       </div>
     </>
   );

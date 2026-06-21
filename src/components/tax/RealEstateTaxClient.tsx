@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import Header from '@/components/Header';
 import RealEstateTaxTab from './RealEstateTaxTab';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -18,6 +19,7 @@ export default function RealEstateTaxClient() {
     <>
       <Header subtitle={t.reSubtitle} description={t.reDesc} navLinks={navLinks} />
       <main className="container">
+        <Link href="/" className="back-link">← 자산인사이트 홈</Link>
         <RealEstateTaxTab />
       </main>
     </>
