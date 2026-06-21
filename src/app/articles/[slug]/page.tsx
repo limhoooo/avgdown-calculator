@@ -8,6 +8,11 @@ import RealEstateTaxChecklist from './content/RealEstateTaxChecklist';
 import SavingsVsDeposit from './content/SavingsVsDeposit';
 import OverseasStockTaxGuide from './content/OverseasStockTaxGuide';
 import JongbuTaxGuide from './content/JongbuTaxGuide';
+import SamsungStockAnalysis from './content/SamsungStockAnalysis';
+import SkhynixHbmAiInvestment from './content/SkhynixHbmAiInvestment';
+import MicronTechnologyInvestment from './content/MicronTechnologyInvestment';
+import SemiconductorCycleStrategy from './content/SemiconductorCycleStrategy';
+import SemiconductorEtfGuide from './content/SemiconductorEtfGuide';
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? 'https://assetinsight.pages.dev';
 
@@ -54,6 +59,11 @@ const CONTENT_MAP: Record<string, React.ReactNode> = {
   'savings-vs-deposit': <SavingsVsDeposit />,
   'overseas-stock-tax-guide': <OverseasStockTaxGuide />,
   'jongbu-tax-guide': <JongbuTaxGuide />,
+  'samsung-electronics-stock-analysis': <SamsungStockAnalysis />,
+  'skhynix-hbm-ai-investment': <SkhynixHbmAiInvestment />,
+  'micron-technology-investment': <MicronTechnologyInvestment />,
+  'semiconductor-cycle-strategy': <SemiconductorCycleStrategy />,
+  'semiconductor-etf-guide': <SemiconductorEtfGuide />,
 };
 
 export default async function ArticlePage({

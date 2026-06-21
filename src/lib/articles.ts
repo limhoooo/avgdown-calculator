@@ -1,4 +1,4 @@
-export type ArticleCategory = '대출' | '투자' | '부동산' | '세금' | '예적금';
+export type ArticleCategory = '대출' | '투자' | '부동산' | '세금' | '예적금' | '반도체';
 
 export interface Article {
   slug: string;
@@ -65,6 +65,51 @@ export const ARTICLES: Article[] = [
     keywords: ['종합부동산세', '종부세 계산', '종부세 기준', '1세대1주택 종부세', '종부세 절세', '고령자 세액공제', '장기보유 종부세 공제', '재산세 종부세 차이', '보유세 계산기', '종부세 납부'],
     relatedCalc: { label: '보유세 계산기', href: '/holding-tax' },
   },
+  {
+    slug: 'samsung-electronics-stock-analysis',
+    title: '삼성전자 주식 완전 분석: 사업 구조·배당·반도체 사이클',
+    description: '삼성전자 DS·MX·VD 사업 구조와 반도체 업황 사이클 연동 원리, 배당 현황, HBM 전략까지 투자 판단에 필요한 핵심 정보를 정리합니다.',
+    category: '반도체',
+    publishedAt: '2025-07-10',
+    keywords: ['삼성전자 주식', '삼성전자 투자', '삼성전자 배당', '삼성전자 DS부문', '반도체 사이클', '삼성전자 HBM', '삼성전자 파운드리', '삼성전자 PBR', '삼성전자 주가 분석', '삼성전자 우선주'],
+    relatedCalc: { label: '평단가 낮추기 계산기', href: '/avgdown' },
+  },
+  {
+    slug: 'skhynix-hbm-ai-investment',
+    title: 'SK하이닉스 HBM 투자 포인트: AI 반도체 시대의 최대 수혜주',
+    description: 'HBM(고대역폭메모리)이 무엇인지, SK하이닉스가 왜 엔비디아의 핵심 공급사가 됐는지, 투자 리스크와 핵심 지표를 분석합니다.',
+    category: '반도체',
+    publishedAt: '2025-07-15',
+    keywords: ['SK하이닉스 HBM', 'SK하이닉스 주식', 'HBM 투자', '고대역폭메모리', 'SK하이닉스 엔비디아', 'HBM3E', 'SK하이닉스 실적', 'AI 반도체 수혜주', 'SK하이닉스 주가 분석', 'HBM 시장 점유율'],
+    relatedCalc: { label: '평단가 낮추기 계산기', href: '/avgdown' },
+  },
+  {
+    slug: 'micron-technology-investment',
+    title: '마이크론 테크놀로지(MU) 투자 분석: 미국 유일의 D램 대표주',
+    description: '미국 유일의 메모리 반도체 기업 마이크론의 사업 구조, CHIPS Act 보조금 수혜, HBM 추격 현황, 투자 리스크를 분석합니다.',
+    category: '반도체',
+    publishedAt: '2025-07-20',
+    keywords: ['마이크론 주식', '마이크론 테크놀로지', 'MU 주식', '마이크론 HBM', 'CHIPS Act 반도체', '미국 반도체 주식', '마이크론 실적', '마이크론 배당', 'D램 미국 기업', '마이크론 낸드'],
+    relatedCalc: { label: '미국 주식 수익률 계산기', href: '/us-stocks' },
+  },
+  {
+    slug: 'semiconductor-cycle-strategy',
+    title: '반도체 업황 사이클 완전 분석: 저점 매수·고점 매도 타이밍 잡는 법',
+    description: '반도체 사이클의 4단계(회복·호황·조정·침체)와 D램 현물가·재고·CAPEX 등 핵심 지표를 활용한 투자 타이밍 전략을 설명합니다.',
+    category: '반도체',
+    publishedAt: '2025-07-25',
+    keywords: ['반도체 사이클', '반도체 업황', 'D램 현물가', '반도체 투자 타이밍', '반도체 슈퍼사이클', '반도체 저점', 'DRAM 가격', '반도체 CAPEX', '메모리 반도체 투자', '반도체 주식 매수 시점'],
+    relatedCalc: { label: '평단가 낮추기 계산기', href: '/avgdown' },
+  },
+  {
+    slug: 'semiconductor-etf-guide',
+    title: '반도체 ETF 투자 가이드: 국내·미국 주요 ETF 비교와 선택법',
+    description: 'KODEX 반도체, TIGER 반도체, SOXX, SMH 등 국내외 주요 반도체 ETF를 비교하고 세금·환율·구성 종목 기준으로 선택하는 방법을 안내합니다.',
+    category: '반도체',
+    publishedAt: '2025-07-30',
+    keywords: ['반도체 ETF', 'KODEX 반도체', 'SOXX ETF', 'SMH ETF', 'TIGER 반도체', '반도체 ETF 추천', '필라델피아 반도체 지수', '반도체 ETF 세금', '미국 반도체 ETF', 'SOXL 레버리지'],
+    relatedCalc: { label: '미국 주식 수익률 계산기', href: '/us-stocks' },
+  },
 ];
 
 export function getArticle(slug: string): Article | undefined {
@@ -83,6 +128,7 @@ const CATEGORY_COLOR: Record<ArticleCategory, string> = {
   '부동산': '#9333ea',
   '세금': '#dc2626',
   '예적금': '#0891b2',
+  '반도체': '#d97706',
 };
 
 export function categoryColor(cat: ArticleCategory): string {
