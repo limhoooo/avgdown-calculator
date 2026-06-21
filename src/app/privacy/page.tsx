@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function PrivacyPage() {
   return (
     <main className="container" style={{ paddingTop: '24px', paddingBottom: '40px' }}>
-      <Link href="/" className="back-link">← 자산인사이트 홈</Link>
+      <Link href="/" className="back-link">← 홈으로</Link>
 
       <div className="card" style={{ marginTop: '16px' }}>
         <h1 style={{ fontSize: '22px', fontWeight: 800, marginBottom: '4px' }}>개인정보처리방침</h1>

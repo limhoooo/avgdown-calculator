@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ARTICLES, categoryColor } from '@/lib/articles';
+import Header from '@/components/Header';
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? 'https://assetinsight.pages.dev';
 
@@ -11,42 +12,44 @@ export const metadata: Metadata = {
   alternates: { canonical: `${BASE_URL}/articles` },
 };
 
+const navLinks = [
+  { href: '/',         label: '계산기 목록' },
+  { href: '/faq',      label: 'FAQ' },
+  { href: '/about',    label: '소개' },
+];
+
 export default function ArticlesPage() {
   const sorted = [...ARTICLES].sort((a, b) =>
     b.publishedAt.localeCompare(a.publishedAt)
   );
 
   return (
-    <main className="container" style={{ paddingTop: '24px', paddingBottom: '40px' }}>
-      <Link href="/" className="back-link">← 홈으로</Link>
-
-      <div style={{ marginTop: '16px', marginBottom: '20px' }}>
-        <h1 style={{ fontSize: '22px', fontWeight: 800, color: 'var(--text)', marginBottom: '6px' }}>
-          투자·금융 가이드
-        </h1>
-        <p style={{ fontSize: '14px', color: 'var(--text-muted)', lineHeight: 1.6 }}>
-          계산기 사용법부터 세금·대출·투자 개념까지, 투자자에게 꼭 필요한 정보를 정리했습니다.
-        </p>
-      </div>
-
-      <div className="article-list">
-        {sorted.map((article) => (
-          <Link key={article.slug} href={`/articles/${article.slug}`} className="article-card">
-            <div className="article-card-meta">
-              <span
-                className="article-category-badge"
-                style={{ background: categoryColor(article.category) }}
-              >
-                {article.category}
-              </span>
-              <span className="article-date">{article.publishedAt}</span>
-            </div>
-            <h2 className="article-card-title">{article.title}</h2>
-            <p className="article-card-desc">{article.description}</p>
-            <span className="article-card-more">자세히 보기 →</span>
-          </Link>
-        ))}
-      </div>
-    </main>
+    <div className="articles-page">
+      <Header
+        subtitle="투자·금융 가이드"
+        description="재테크·세금·투자 핵심 정보를 쉽고 명확하게 정리합니다"
+        navLinks={navLinks}
+      />
+      <main className="container" style={{ paddingTop: '20px', paddingBottom: '40px' }}>
+        <div className="hub-article-grid">
+          {sorted.map((article) => (
+            <Link key={article.slug} href={`/articles/${article.slug}`} className="hub-article-card">
+              <div className="hub-article-meta">
+                <span
+                  className="article-category-badge"
+                  style={{ background: categoryColor(article.category) }}
+                >
+                  {article.category}
+                </span>
+                <span className="article-date">{article.publishedAt}</span>
+              </div>
+              <p className="hub-article-title">{article.title}</p>
+              <p className="hub-article-desc">{article.description}</p>
+              <span className="article-card-more" style={{ marginTop: '14px', fontSize: '13px', fontWeight: 700, color: 'var(--primary)' }}>자세히 보기 →</span>
+            </Link>
+          ))}
+        </div>
+      </main>
+    </div>
   );
 }

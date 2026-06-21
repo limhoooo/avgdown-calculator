@@ -152,20 +152,20 @@ export default function HubPage() {
             {CALCULATORS.map((calc) =>
               calc.ready ? (
                 <Link key={calc.name} href={calc.href!} className="hub-card hub-card-link">
-                  <div className="hub-card-emoji">{calc.emoji}</div>
-                  <div className="hub-card-body">
+                  <div className="hub-card-header">
+                    <div className="hub-card-emoji">{calc.emoji}</div>
                     <div className="hub-card-name">{calc.name}</div>
-                    <div className="hub-card-desc">{calc.desc}</div>
                   </div>
-                  <div className="hub-card-arrow">→</div>
+                  <div className="hub-card-desc">{calc.desc}</div>
+                  <div className="hub-card-arrow">바로가기 →</div>
                 </Link>
               ) : (
                 <div key={calc.name} className="hub-card hub-card-soon">
-                  <div className="hub-card-emoji">{calc.emoji}</div>
-                  <div className="hub-card-body">
+                  <div className="hub-card-header">
+                    <div className="hub-card-emoji">{calc.emoji}</div>
                     <div className="hub-card-name">{calc.name}</div>
-                    <div className="hub-card-desc">{calc.desc}</div>
                   </div>
+                  <div className="hub-card-desc">{calc.desc}</div>
                   <div className="hub-card-badge">준비중</div>
                 </div>
               )

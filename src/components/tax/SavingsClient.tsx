@@ -19,7 +19,7 @@ export default function SavingsClient() {
     <>
       <Header subtitle={t.svSubtitle} description={t.svDesc} navLinks={navLinks} />
       <main className="container">
-        <Link href="/" className="back-link">← 자산인사이트 홈</Link>
+        <Link href="/" className="back-link">← 홈으로</Link>
         <SavingsTab />
       </main>
     </>

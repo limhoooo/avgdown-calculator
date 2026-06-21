@@ -38,9 +38,7 @@ export default function Header({ subtitle, description, navLinks }: Props) {
         <div className="header-caustic" />
       </div>
 
-      <Link href="/" className="header-home">← 자산인사이트</Link>
-
-      <div className="header-controls">
+<div className="header-controls">
         <button className="lang-toggle" onClick={() => setLang(lang === 'ko' ? 'en' : 'ko')}>
           {lang === 'ko'
             ? <><US className="flag-icon" title="English" /> English</>

@@ -1,10 +1,13 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import Link from 'next/link';
 import { ARTICLES, getArticle, categoryColor } from '@/lib/articles';
+import Header from '@/components/Header';
 import LoanRepaymentComparison from './content/LoanRepaymentComparison';
 import CompoundInterest72Rule from './content/CompoundInterest72Rule';
 import RealEstateTaxChecklist from './content/RealEstateTaxChecklist';
+import SavingsVsDeposit from './content/SavingsVsDeposit';
+import OverseasStockTaxGuide from './content/OverseasStockTaxGuide';
+import JongbuTaxGuide from './content/JongbuTaxGuide';
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? 'https://assetinsight.pages.dev';
 
@@ -40,6 +43,9 @@ const CONTENT_MAP: Record<string, React.ReactNode> = {
   'loan-repayment-comparison': <LoanRepaymentComparison />,
   'compound-interest-72-rule': <CompoundInterest72Rule />,
   'realestate-tax-checklist': <RealEstateTaxChecklist />,
+  'savings-vs-deposit': <SavingsVsDeposit />,
+  'overseas-stock-tax-guide': <OverseasStockTaxGuide />,
+  'jongbu-tax-guide': <JongbuTaxGuide />,
 };
 
 export default async function ArticlePage({
@@ -53,6 +59,14 @@ export default async function ArticlePage({
 
   const content = CONTENT_MAP[slug];
   if (!content) notFound();
+
+  const navLinks = [
+    { href: '/articles', label: '아티클 목록' },
+    ...(article.relatedCalc
+      ? [{ href: article.relatedCalc.href, label: article.relatedCalc.label }]
+      : []),
+    { href: '/faq', label: 'FAQ' },
+  ];
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -73,12 +87,13 @@ export default async function ArticlePage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <main className="container" style={{ paddingTop: '24px', paddingBottom: '40px' }}>
+      <Header
+        subtitle={`${article.category} 가이드`}
+        description={article.title}
+        navLinks={navLinks}
+      />
+      <main className="container" style={{ paddingTop: '20px', paddingBottom: '40px' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '16px' }}>
-          <Link href="/articles" className="back-link" style={{ marginBottom: 0 }}>
-            ← 아티클 목록
-          </Link>
-          <span style={{ color: 'var(--border)' }}>|</span>
           <span
             className="article-category-badge"
             style={{ background: categoryColor(article.category) }}

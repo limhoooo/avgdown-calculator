@@ -34,6 +34,30 @@ export const ARTICLES: Article[] = [
     publishedAt: '2025-06-18',
     relatedCalc: { label: '취득세 계산기', href: '/acquisition-tax' },
   },
+  {
+    slug: 'savings-vs-deposit',
+    title: '정기예금 vs 적금, 이자를 더 많이 주는 건 어느 쪽일까?',
+    description: '같은 금리라도 실제 받는 이자가 다릅니다. 예금과 적금의 구조적 차이와 세후 수익 비교법을 알기 쉽게 설명합니다.',
+    category: '예적금',
+    publishedAt: '2025-06-23',
+    relatedCalc: { label: '예적금 계산기', href: '/savings' },
+  },
+  {
+    slug: 'overseas-stock-tax-guide',
+    title: '해외주식 양도소득세 신고 방법과 절세 전략',
+    description: '해외주식 매도 시 꼭 알아야 할 양도소득세 신고 시기·방법·계산법과 기본공제 250만원 활용 절세 전략을 정리합니다.',
+    category: '세금',
+    publishedAt: '2025-06-28',
+    relatedCalc: { label: '해외주식 양도소득세 계산기', href: '/stock-tax' },
+  },
+  {
+    slug: 'jongbu-tax-guide',
+    title: '종합부동산세(종부세) 완벽 가이드: 계산부터 절세까지',
+    description: '종부세 과세 기준, 세율, 계산 방법을 쉽게 설명하고 1세대 1주택자 공제·고령자 세액공제 등 절세 방법을 안내합니다.',
+    category: '부동산',
+    publishedAt: '2025-07-02',
+    relatedCalc: { label: '보유세 계산기', href: '/holding-tax' },
+  },
 ];
 
 export function getArticle(slug: string): Article | undefined {

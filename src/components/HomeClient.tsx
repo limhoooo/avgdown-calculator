@@ -57,7 +57,7 @@ export default function HomeClient() {
     <>
       <Header subtitle={t.avgdownSubtitle} description={t.avgdownDesc} navLinks={navLinks} />
       <main className="container">
-        <Link href="/" className="back-link">← 자산인사이트 홈</Link>
+        <Link href="/" className="back-link">← 홈으로</Link>
         <CurrencyToggle currency={currency} onChange={setCurrency} />
         <PortfolioCard
           stocks={stocks}

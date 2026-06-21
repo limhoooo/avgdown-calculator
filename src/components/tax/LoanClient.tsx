@@ -19,7 +19,7 @@ export default function LoanClient() {
     <>
       <Header subtitle={t.lnSubtitle} description={t.lnDesc} navLinks={navLinks} />
       <main className="container">
-        <Link href="/" className="back-link">← 자산인사이트 홈</Link>
+        <Link href="/" className="back-link">← 홈으로</Link>
         <LoanTab />
       </main>
     </>

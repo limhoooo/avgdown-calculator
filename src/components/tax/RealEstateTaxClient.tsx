@@ -19,7 +19,7 @@ export default function RealEstateTaxClient() {
     <>
       <Header subtitle={t.reSubtitle} description={t.reDesc} navLinks={navLinks} />
       <main className="container">
-        <Link href="/" className="back-link">← 자산인사이트 홈</Link>
+        <Link href="/" className="back-link">← 홈으로</Link>
         <RealEstateTaxTab />
       </main>
     </>
