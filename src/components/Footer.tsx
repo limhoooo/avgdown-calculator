@@ -8,6 +8,8 @@ export default function Footer() {
   return (
     <footer className="footer">
       <nav className="footer-nav">
+        <Link href="/articles" className="footer-link">아티클</Link>
+        <span className="footer-sep">·</span>
         <Link href="/about" className="footer-link">{t.footerAbout}</Link>
         <span className="footer-sep">·</span>
         <Link href="/privacy" className="footer-link">{t.footerPrivacy}</Link>

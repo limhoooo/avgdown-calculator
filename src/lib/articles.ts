@@ -1,0 +1,59 @@
+export type ArticleCategory = '대출' | '투자' | '부동산' | '세금' | '예적금';
+
+export interface Article {
+  slug: string;
+  title: string;
+  description: string;
+  category: ArticleCategory;
+  publishedAt: string;
+  relatedCalc?: { label: string; href: string };
+}
+
+export const ARTICLES: Article[] = [
+  {
+    slug: 'loan-repayment-comparison',
+    title: '원리금균등 vs 원금균등 상환, 어떤 게 더 유리할까?',
+    description: '두 상환 방식의 이자 총액·월 납입금 차이를 비교하고, 내 상황에 맞는 방식을 선택하는 기준을 안내합니다.',
+    category: '대출',
+    publishedAt: '2025-06-01',
+    relatedCalc: { label: '대출 이자 계산기', href: '/loan' },
+  },
+  {
+    slug: 'compound-interest-72-rule',
+    title: '복리의 힘: 72법칙으로 보는 투자 원금 2배 기간',
+    description: '복리 효과가 왜 강력한지, 72법칙으로 원금이 두 배 되는 기간을 계산하는 방법을 쉽게 설명합니다.',
+    category: '투자',
+    publishedAt: '2025-06-10',
+    relatedCalc: { label: '복리 계산기', href: '/compound' },
+  },
+  {
+    slug: 'realestate-tax-checklist',
+    title: '부동산 세금 완전 정리: 취득·보유·양도세 한눈에',
+    description: '부동산을 사고·보유하고·팔 때 내야 하는 세금을 단계별로 정리했습니다. 절세 포인트까지 함께 확인하세요.',
+    category: '부동산',
+    publishedAt: '2025-06-18',
+    relatedCalc: { label: '취득세 계산기', href: '/acquisition-tax' },
+  },
+];
+
+export function getArticle(slug: string): Article | undefined {
+  return ARTICLES.find((a) => a.slug === slug);
+}
+
+export function getLatestArticles(n = 3): Article[] {
+  return [...ARTICLES]
+    .sort((a, b) => b.publishedAt.localeCompare(a.publishedAt))
+    .slice(0, n);
+}
+
+const CATEGORY_COLOR: Record<ArticleCategory, string> = {
+  '대출': '#2563eb',
+  '투자': '#16a34a',
+  '부동산': '#9333ea',
+  '세금': '#dc2626',
+  '예적금': '#0891b2',
+};
+
+export function categoryColor(cat: ArticleCategory): string {
+  return CATEGORY_COLOR[cat];
+}

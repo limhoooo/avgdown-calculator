@@ -1,4 +1,5 @@
 import type { MetadataRoute } from 'next';
+import { ARTICLES } from '@/lib/articles';
 
 export const dynamic = 'force-static';
 
@@ -6,6 +7,13 @@ const BASE_URL =
   process.env.NEXT_PUBLIC_BASE_URL ?? 'https://assetinsight.pages.dev';
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const articleEntries: MetadataRoute.Sitemap = ARTICLES.map((a) => ({
+    url: `${BASE_URL}/articles/${a.slug}`,
+    lastModified: new Date(a.publishedAt),
+    changeFrequency: 'monthly' as const,
+    priority: 0.85,
+  }));
+
   return [
     {
       url: BASE_URL,
@@ -121,6 +129,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.8,
     },
+    {
+      url: `${BASE_URL}/articles`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    ...articleEntries,
     {
       url: `${BASE_URL}/about`,
       lastModified: new Date(),

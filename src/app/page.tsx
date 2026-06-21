@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { getLatestArticles, categoryColor } from '@/lib/articles';
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? 'https://assetinsight.pages.dev';
 
@@ -112,6 +113,7 @@ const CHART_BARS = [
 ];
 
 export default function HubPage() {
+  const latestArticles = getLatestArticles(3);
   return (
     <>
       <script
@@ -168,6 +170,29 @@ export default function HubPage() {
                 </div>
               )
             )}
+          </div>
+          <div className="hub-section-title" style={{ marginTop: '32px' }}>최신 아티클</div>
+          <div className="hub-article-grid">
+            {latestArticles.map((article) => (
+              <Link key={article.slug} href={`/articles/${article.slug}`} className="hub-article-card">
+                <div className="hub-article-meta">
+                  <span
+                    className="article-category-badge"
+                    style={{ background: categoryColor(article.category) }}
+                  >
+                    {article.category}
+                  </span>
+                  <span className="article-date">{article.publishedAt}</span>
+                </div>
+                <p className="hub-article-title">{article.title}</p>
+                <p className="hub-article-desc">{article.description}</p>
+              </Link>
+            ))}
+          </div>
+          <div style={{ textAlign: 'center', marginTop: '16px' }}>
+            <Link href="/articles" className="hub-articles-more">
+              아티클 전체 보기 →
+            </Link>
           </div>
         </main>
       </div>
