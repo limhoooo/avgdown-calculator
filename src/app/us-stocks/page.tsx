@@ -135,7 +135,7 @@ export default function UsStocksPage() {
         </div>
 
         <div style={{ textAlign: 'center', marginTop: '12px' }}>
-          <Link href="/guide" className="privacy-link" style={{ fontSize: '14px', fontWeight: 600 }}>
+          <Link href="/avgdown/guide" className="privacy-link" style={{ fontSize: '14px', fontWeight: 600 }}>
             물타기 기초 개념 가이드 보기 →
           </Link>
         </div>

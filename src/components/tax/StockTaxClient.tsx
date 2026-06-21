@@ -1,0 +1,25 @@
+'use client';
+
+import Header from '@/components/Header';
+import StockTaxTab from './StockTaxTab';
+import { useLanguage } from '@/contexts/LanguageContext';
+
+export default function StockTaxClient() {
+  const { t } = useLanguage();
+
+  const navLinks = [
+    { href: '/stock-tax/guide', label: t.stNavGuide },
+    { href: '/faq',             label: t.navFaq },
+    { href: '/about',           label: t.navAbout },
+    { href: '/privacy',         label: t.navPrivacy },
+  ];
+
+  return (
+    <>
+      <Header subtitle={t.stSubtitle} description={t.stDesc} navLinks={navLinks} />
+      <main className="container">
+        <StockTaxTab />
+      </main>
+    </>
+  );
+}

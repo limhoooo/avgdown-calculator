@@ -4,15 +4,15 @@ import Link from 'next/link';
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? 'https://assetinsight.pages.dev';
 
 export const metadata: Metadata = {
-  title: '개인정보처리방침 | 물타기 계산기',
-  description: '물타기 계산기의 개인정보처리방침입니다. 쿠키 사용, Google AdSense 광고 서비스 및 개인정보 처리에 관한 내용을 확인하세요.',
+  title: '개인정보처리방침 | 자산인사이트',
+  description: '자산인사이트의 개인정보처리방침입니다. 쿠키 사용, Google AdSense 광고 서비스 및 개인정보 처리에 관한 내용을 확인하세요.',
   alternates: { canonical: `${BASE_URL}/privacy` },
 };
 
 export default function PrivacyPage() {
   return (
     <main className="container" style={{ paddingTop: '24px', paddingBottom: '40px' }}>
-      <Link href="/avgdown" className="back-link">← 계산기로 돌아가기</Link>
+      <Link href="/" className="back-link">← 자산인사이트 홈</Link>
 
       <div className="card" style={{ marginTop: '16px' }}>
         <h1 style={{ fontSize: '22px', fontWeight: 800, marginBottom: '4px' }}>개인정보처리방침</h1>
@@ -22,8 +22,9 @@ export default function PrivacyPage() {
       <div className="card">
         <h2 className="privacy-section-title">1. 개요</h2>
         <p className="privacy-text">
-          물타기 계산기(이하 "서비스")는 사용자의 개인정보를 소중히 여기며, 「개인정보 보호법」 등 관련 법령을 준수합니다.
+          자산인사이트(이하 "서비스")는 사용자의 개인정보를 소중히 여기며, 「개인정보 보호법」 등 관련 법령을 준수합니다.
           본 개인정보처리방침은 서비스가 어떤 정보를 수집하고 어떻게 사용하는지 안내합니다.
+          서비스는 물타기 계산기, 해외주식 양도소득세 계산기, 부동산 양도소득세 계산기 등 투자자를 위한 무료 계산 도구를 제공합니다.
         </p>
       </div>
 
@@ -42,13 +43,23 @@ export default function PrivacyPage() {
       </div>
 
       <div className="card">
-        <h2 className="privacy-section-title">3. 쿠키(Cookie) 사용</h2>
+        <h2 className="privacy-section-title">3. 계산 데이터 처리</h2>
+        <p className="privacy-text">
+          서비스 내에서 입력하는 모든 계산 데이터(매수가, 수량, 양도가액, 취득가액 등)는
+          <strong> 브라우저 내에서만 처리되며 서버로 전송되거나 저장되지 않습니다.</strong>
+          포트폴리오 저장 기능은 브라우저의 로컬 저장소(localStorage)만을 사용하므로 다른 기기에서는 확인할 수 없습니다.
+        </p>
+      </div>
+
+      <div className="card">
+        <h2 className="privacy-section-title">4. 쿠키(Cookie) 사용</h2>
         <p className="privacy-text">
           서비스는 사용자 편의를 위해 쿠키를 사용합니다. 쿠키는 사용자의 브라우저에 저장되는 작은 텍스트 파일로,
           다음과 같은 목적으로 사용됩니다.
         </p>
         <ul className="privacy-list">
           <li>테마 설정(다크/라이트 모드) 유지</li>
+          <li>언어 설정 유지</li>
           <li>서비스 이용 통계 분석</li>
           <li>맞춤형 광고 제공 (Google AdSense)</li>
         </ul>
@@ -59,7 +70,7 @@ export default function PrivacyPage() {
       </div>
 
       <div className="card">
-        <h2 className="privacy-section-title">4. Google AdSense 광고 서비스</h2>
+        <h2 className="privacy-section-title">5. Google AdSense 광고 서비스</h2>
         <p className="privacy-text">
           본 서비스는 Google LLC가 제공하는 <strong>Google AdSense</strong>를 통해 광고를 게재합니다.
           Google AdSense는 사용자의 관심사에 맞는 광고를 제공하기 위해 쿠키 및 유사 기술을 사용합니다.
@@ -69,34 +80,21 @@ export default function PrivacyPage() {
           <li>사용자는 <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer" className="privacy-link">Google 광고 설정</a>에서 맞춤형 광고를 비활성화할 수 있습니다.</li>
           <li>Google의 데이터 사용 방식에 대한 자세한 내용은 <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="privacy-link">Google 개인정보처리방침</a>을 참고하세요.</li>
         </ul>
-        <p className="privacy-text">
-          또한 Google Analytics 및 제3자 광고 네트워크를 통해 서비스 이용 통계가 수집될 수 있습니다.
-        </p>
       </div>
 
       <div className="card">
-        <h2 className="privacy-section-title">5. 제3자 서비스</h2>
+        <h2 className="privacy-section-title">6. 제3자 서비스</h2>
         <p className="privacy-text">서비스는 다음의 제3자 서비스를 이용합니다.</p>
         <ul className="privacy-list">
           <li>
             <strong>open.er-api.com</strong> — 실시간 환율 정보 조회를 위해 사용됩니다.
-            사용자가 USD 모드를 이용할 때 해당 외부 API에 요청이 전송됩니다.
+            물타기 계산기 및 해외주식 계산기의 USD 모드 이용 시 해당 외부 API에 요청이 전송됩니다.
           </li>
           <li>
             <strong>Google AdSense</strong> — 광고 게재를 위해 사용됩니다. Google의 서버로 광고 요청이 전송될 수 있습니다.
           </li>
         </ul>
         <p className="privacy-text">각 제3자 서비스의 개인정보 처리에 대한 책임은 해당 서비스 제공자에게 있습니다.</p>
-      </div>
-
-      <div className="card">
-        <h2 className="privacy-section-title">6. 개인정보의 보유 및 이용기간</h2>
-        <p className="privacy-text">
-          서비스는 사용자의 개인정보를 별도로 수집·보유하지 않습니다.
-          서비스 내 입력하는 계산 데이터(매수가, 수량 등)는 브라우저의 메모리에만 임시 저장되며,
-          서버로 전송되거나 저장되지 않습니다.
-          광고 서비스 관련 데이터는 Google의 정책에 따라 처리됩니다.
-        </p>
       </div>
 
       <div className="card">
@@ -112,7 +110,7 @@ export default function PrivacyPage() {
       <div className="card">
         <h2 className="privacy-section-title">8. 개인정보처리방침 변경</h2>
         <p className="privacy-text">
-          본 방침은 관련 법령 변경 또는 서비스 변경에 따라 수정될 수 있습니다.
+          본 방침은 관련 법령 변경 또는 서비스 변경(새로운 계산기 추가 등)에 따라 수정될 수 있습니다.
           내용이 변경될 경우 서비스 내 공지 또는 본 페이지를 통해 안내합니다.
         </p>
       </div>

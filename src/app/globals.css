@@ -176,6 +176,26 @@ body {
   position: relative;
   overflow: hidden;
 }
+.header-home {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  border-radius: 50px;
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px 11px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+.header-home:hover { background: rgba(255, 255, 255, 0.25); color: white; }
 .header::before {
   content: '';
   position: absolute;
@@ -296,6 +316,7 @@ body {
   color: white;
 }
 
+
 .header-controls {
   position: absolute;
   top: 16px;
@@ -317,6 +338,7 @@ body {
 .lang-toggle  { padding: 6px 11px; font-size: 12px; display: flex; align-items: center; gap: 5px; }
 .theme-toggle:hover, .lang-toggle:hover { background: rgba(255, 255, 255, 0.25); }
 .flag-icon { width: 18px; height: 13px; border-radius: 2px; display: inline-block; flex-shrink: 0; }
+
 
 .container { max-width: 660px; margin: 0 auto; padding: 16px; }
 
@@ -746,6 +768,79 @@ tbody tr:last-child td { border-bottom: none; }
 
 /* ── App Description (main page bottom) ── */
 .app-desc-section { margin-top: 4px; }
+
+/* ── Tax Calculator ── */
+.tax-notice {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 14px;
+}
+.tax-info-box {
+  background: var(--primary-light);
+  border: 1px solid var(--border-accent);
+  border-radius: 10px;
+  padding: 14px 16px;
+  font-size: 14px;
+  color: var(--info-text);
+  line-height: 1.6;
+}
+.tax-success-box {
+  background: var(--success-light);
+  border: 1px solid var(--border-success);
+  border-radius: 10px;
+  padding: 14px 16px;
+  font-size: 14px;
+  color: var(--success);
+  line-height: 1.6;
+}
+.tax-result-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.tax-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 11px 16px;
+  border-bottom: 1px solid var(--border);
+  gap: 12px;
+}
+.tax-row:last-child { border-bottom: none; }
+.tax-label { font-size: 13px; color: var(--text-muted); }
+.tax-value { font-size: 14px; font-weight: 600; color: var(--text); white-space: nowrap; }
+.tax-row-sub .tax-label { font-size: 12px; padding-left: 8px; }
+.tax-row-sub .tax-value { font-size: 13px; color: var(--text-muted); }
+.tax-row-emphasis { background: var(--primary-light); }
+.tax-row-emphasis .tax-label { font-weight: 700; color: var(--text); }
+.tax-row-emphasis .tax-value { color: var(--primary); }
+.tax-row-total { background: var(--primary); }
+.tax-row-total .tax-label { font-size: 14px; font-weight: 700; color: rgba(255,255,255,0.85); }
+.tax-row-total .tax-value { font-size: 16px; font-weight: 800; color: white; }
+.tax-disclaimer {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-top: 12px;
+}
+.tax-checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+.tax-checkbox-label input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  accent-color: var(--primary);
+}
 .app-desc-text {
   font-size: 14px;
   color: var(--text-muted);
@@ -792,29 +887,19 @@ tbody tr:last-child td { border-bottom: none; }
 
 /* ── Responsive ── */
 @media (max-width: 600px) {
-  /* 컨트롤 버튼이 헤더 텍스트와 겹치지 않도록 padding-top 확보 */
-  .header {
-    padding-top: 66px;
-  }
+  .header { padding-top: 66px; }
   .header h1 { font-size: 22px; }
 }
 
 @media (max-width: 400px) {
-  .header {
-    padding-top: 72px;
-    padding-left: 12px;
-    padding-right: 12px;
-  }
+  .header { padding-top: 72px; padding-left: 12px; padding-right: 12px; }
   .header h1 { font-size: 19px; }
   .header p  { font-size: 12px; }
-  /* 버튼 크기 축소 */
   .header-controls { right: 10px; gap: 4px; }
   .theme-toggle { padding: 5px 9px; font-size: 11px; }
   .lang-toggle  { padding: 5px 8px; font-size: 11px; }
-  /* 네비게이션 링크 축소 */
   .header-nav { gap: 4px; margin-top: 10px; }
   .header-nav-link { font-size: 11px; padding: 4px 9px; }
-  /* 컨테이너 패딩 */
   .container { padding: 10px; }
 }
 

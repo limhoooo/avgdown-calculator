@@ -29,12 +29,20 @@ const CALCULATORS = [
     ready: true,
   },
   {
-    emoji: '📊',
-    name: '양도소득세 계산기',
-    nameEn: 'Capital Gains Tax',
-    desc: '주식·부동산 양도소득세 자동 계산',
-    href: null,
-    ready: false,
+    emoji: '📈',
+    name: '해외주식 양도소득세 계산기',
+    nameEn: 'Foreign Stock Tax',
+    desc: '해외주식 매도 시 양도세 계산. 기본공제 250만원 · 22% 세율 자동 적용',
+    href: '/stock-tax',
+    ready: true,
+  },
+  {
+    emoji: '🏠',
+    name: '부동산 양도소득세 계산기',
+    nameEn: 'Real Estate Tax',
+    desc: '부동산 양도세 계산. 장기보유특별공제 · 1세대1주택 비과세 · 누진세율 자동 적용',
+    href: '/realestate-tax',
+    ready: true,
   },
 ];
 

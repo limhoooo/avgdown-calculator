@@ -4,9 +4,9 @@ import Link from 'next/link';
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? 'https://assetinsight.pages.dev';
 
 export const metadata: Metadata = {
-  title: '자주 묻는 질문 (FAQ) | 물타기 계산기',
-  description: '물타기 계산기 사용법, 평균단가 계산 방법, 달러 모드, 포트폴리오 저장 등 자주 묻는 질문에 대한 답변을 확인하세요.',
-  keywords: ['물타기 계산기 사용법', '평균단가 계산', '물타기 FAQ', '주식 평균단가 질문', '삼성전자 물타기', '미국주식 물타기', '달러 평균단가 계산', '평균단가 낮추기 계산', '주식 평균단가 계산기'],
+  title: '자주 묻는 질문 (FAQ) | 자산인사이트',
+  description: '자산인사이트 계산기 사용법 FAQ. 물타기 계산기, 해외주식 양도소득세 계산기, 부동산 양도소득세 계산기에 대한 자주 묻는 질문을 확인하세요.',
+  keywords: ['물타기 계산기 사용법', '해외주식 양도소득세 FAQ', '부동산 양도소득세 FAQ', '평균단가 계산', '주식 평균단가 질문', '삼성전자 물타기', '미국주식 물타기', '달러 평균단가 계산'],
   alternates: { canonical: `${BASE_URL}/faq` },
 };
 
@@ -91,6 +91,48 @@ const FAQS = [
     ],
   },
   {
+    category: '해외주식 양도소득세 계산기',
+    items: [
+      {
+        q: '해외주식 양도소득세 계산기는 어떤 경우에 사용하나요?',
+        a: '미국, 유럽 등 해외 거래소에 상장된 주식을 직접 매도하여 이익이 발생한 경우에 사용합니다. 국내 주식(대주주 제외)과 달리 해외주식은 일반 투자자도 연간 합산 양도차익에 대해 양도소득세를 신고·납부해야 합니다.',
+      },
+      {
+        q: '기본공제 250만원은 어떻게 적용되나요?',
+        a: '해외주식 양도소득세 기본공제 250만원은 연간(1월~12월) 모든 해외주식 거래의 손익을 합산한 후 한 번만 적용됩니다. 예를 들어 A 주식에서 300만원 수익, B 주식에서 100만원 손실이 발생했다면, 순 양도차익 200만원에서 250만원을 공제하면 과세표준이 0원이 되어 세금이 없습니다.',
+      },
+      {
+        q: '세율은 몇 퍼센트인가요?',
+        a: '해외주식 양도소득세는 과세표준(양도차익 - 기본공제 250만원)의 20%이며, 여기에 지방소득세 2%(양도소득세의 10%)가 추가로 부과됩니다. 합계 세율은 22%입니다.',
+      },
+      {
+        q: '달러로 거래한 경우 어떻게 입력하나요?',
+        a: '매수·매도 시점의 환율로 각각 원화로 환산하여 입력합니다. 예를 들어 매수 시 환율 1,300원/$에 $100 매수(취득원가 130,000원), 매도 시 환율 1,400원/$에 $120 매도(매도금액 168,000원)라면, 양도차익은 168,000 - 130,000 = 38,000원이 됩니다.',
+      },
+    ],
+  },
+  {
+    category: '부동산 양도소득세 계산기',
+    items: [
+      {
+        q: '1세대 1주택 비과세란 무엇인가요?',
+        a: '1세대가 1주택만 보유하고 일정 요건을 충족하면 양도소득세가 전액 비과세됩니다. 비조정대상지역은 보유기간 2년 이상, 조정대상지역은 보유기간 2년 + 거주기간 2년 이상이 필요합니다. 양도가액이 12억원을 초과하는 경우 초과분에만 과세됩니다.',
+      },
+      {
+        q: '장기보유특별공제는 어떻게 계산되나요?',
+        a: '일반 부동산(토지·건물)은 보유기간 3년 이상부터 연 2%씩 공제되며 최대 30%(15년)까지 적용됩니다. 1세대 1주택(12억 초과분)은 보유기간 × 4% + 거주기간 × 4%로 최대 80%까지 공제됩니다. 보유기간 3년 미만이거나 미등기 양도의 경우 장기보유특별공제를 받을 수 없습니다.',
+      },
+      {
+        q: '단기 양도 세율은 얼마인가요?',
+        a: '주택·조합원입주권의 경우 보유기간 1년 미만이면 70%, 2년 미만이면 60%의 세율이 적용됩니다. 미등기 양도도 70% 세율이 적용됩니다. 2년 이상 보유한 경우 6~45%의 일반 누진세율이 적용됩니다.',
+      },
+      {
+        q: '필요경비에는 어떤 것들이 포함되나요?',
+        a: '취득세, 등록세, 법무사 비용, 부동산 중개수수료, 자본적 지출(증·개축, 베란다 확장, 보일러 교체 등 가치를 높이는 수리비)이 필요경비에 포함됩니다. 단순 유지·보수를 위한 수선비는 필요경비로 인정되지 않습니다.',
+      },
+    ],
+  },
+  {
     category: '달러(USD) 모드',
     items: [
       {
@@ -129,13 +171,15 @@ export default function FaqPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
     <main className="container" style={{ paddingTop: '24px', paddingBottom: '40px' }}>
-      <Link href="/avgdown" className="back-link">← 계산기로 돌아가기</Link>
+      <Link href="/" className="back-link">← 자산인사이트 홈</Link>
 
       <div className="card" style={{ marginTop: '16px' }}>
         <h1 style={{ fontSize: '22px', fontWeight: 800, marginBottom: '8px' }}>자주 묻는 질문 (FAQ)</h1>
         <p className="privacy-text" style={{ marginBottom: 0 }}>
-          물타기 계산기 사용법과 물타기 전략에 대해 자주 묻는 질문들을 모았습니다.
-          더 자세한 내용은 <Link href="/guide" className="privacy-link">물타기 가이드</Link>를 참고하세요.
+          자산인사이트 계산기 사용법과 투자·세금 전략에 대해 자주 묻는 질문들을 모았습니다.
+          각 계산기별 자세한 내용은 <Link href="/avgdown/guide" className="privacy-link">물타기 가이드</Link>·
+          <Link href="/stock-tax/guide" className="privacy-link">해외주식 양도세 가이드</Link>·
+          <Link href="/realestate-tax/guide" className="privacy-link">부동산 양도세 가이드</Link>를 참고하세요.
         </p>
       </div>
 
@@ -153,10 +197,10 @@ export default function FaqPage() {
         </div>
       ))}
 
-      <div style={{ textAlign: 'center', marginTop: '8px' }}>
-        <Link href="/guide" className="privacy-link" style={{ fontSize: '14px', fontWeight: 600 }}>
-          물타기 개념이 더 궁금하다면 → 물타기 완벽 가이드 보기
-        </Link>
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px', marginTop: '8px' }}>
+        <Link href="/avgdown/guide" className="privacy-link" style={{ fontSize: '14px', fontWeight: 600 }}>물타기 완벽 가이드 보기 →</Link>
+        <Link href="/stock-tax/guide" className="privacy-link" style={{ fontSize: '14px', fontWeight: 600 }}>해외주식 양도소득세 가이드 보기 →</Link>
+        <Link href="/realestate-tax/guide" className="privacy-link" style={{ fontSize: '14px', fontWeight: 600 }}>부동산 양도소득세 가이드 보기 →</Link>
       </div>
     </main>
     </>

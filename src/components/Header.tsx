@@ -16,16 +16,15 @@ const BUBBLES = [
   { left: '94%', size: 4,  duration: 10,  delay: 2.8 },
 ];
 
-export default function Header() {
+interface Props {
+  subtitle?: string;
+  description?: string;
+  navLinks?: { href: string; label: string }[];
+}
+
+export default function Header({ subtitle, description, navLinks }: Props) {
   const { theme, toggleTheme } = useTheme();
   const { lang, setLang, t } = useLanguage();
-
-  const navLinks = [
-    { href: '/guide', label: t.navGuide },
-    { href: '/faq',   label: t.navFaq },
-    { href: '/about', label: t.navAbout },
-    { href: '/privacy', label: t.navPrivacy },
-  ];
 
   return (
     <header className="header">
@@ -39,6 +38,8 @@ export default function Header() {
         <div className="header-caustic" />
       </div>
 
+      <Link href="/" className="header-home">← 자산인사이트</Link>
+
       <div className="header-controls">
         <button className="lang-toggle" onClick={() => setLang(lang === 'ko' ? 'en' : 'ko')}>
           {lang === 'ko'
@@ -50,13 +51,16 @@ export default function Header() {
         </button>
       </div>
 
-      <h1>{t.title}</h1>
-      <p>{t.subtitle}</p>
-      <nav className="header-nav">
-        {navLinks.map(({ href, label }) => (
-          <Link key={href} href={href} className="header-nav-link">{label}</Link>
-        ))}
-      </nav>
+      <h1>{subtitle ?? t.title}</h1>
+      {description && <p>{description}</p>}
+
+      {navLinks && navLinks.length > 0 && (
+        <nav className="header-nav">
+          {navLinks.map(({ href, label }) => (
+            <Link key={href} href={href} className="header-nav-link">{label}</Link>
+          ))}
+        </nav>
+      )}
     </header>
   );
 }

@@ -29,7 +29,7 @@ export default function AppDescription() {
           </div>
         </div>
         <div className="app-desc-footer">
-          <Link href="/guide" className="app-desc-link">{t.descGuideLink}</Link>
+          <Link href="/avgdown/guide" className="app-desc-link">{t.descGuideLink}</Link>
           <Link href="/faq"   className="app-desc-link">{t.descFaqLink}</Link>
         </div>
       </div>

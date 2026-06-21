@@ -8,9 +8,11 @@ import KrwCalculator from '@/components/krw/KrwCalculator';
 import UsdCalculator from '@/components/usd/UsdCalculator';
 import AppDescription from '@/components/AppDescription';
 import { usePortfolio } from '@/hooks/usePortfolio';
+import { useLanguage } from '@/contexts/LanguageContext';
 import type { Currency, Round, SavedStock } from '@/types/calculator';
 
 export default function HomeClient() {
+  const { t } = useLanguage();
   const [currency, setCurrency] = useState<Currency>('krw');
 
   const [krwPrice, setKrwPrice] = useState('');
@@ -43,9 +45,16 @@ export default function HomeClient() {
     }
   };
 
+  const navLinks = [
+    { href: '/avgdown/guide', label: t.navGuide },
+    { href: '/faq',           label: t.navFaq },
+    { href: '/about',         label: t.navAbout },
+    { href: '/privacy',       label: t.navPrivacy },
+  ];
+
   return (
     <>
-      <Header />
+      <Header subtitle={t.avgdownSubtitle} description={t.avgdownDesc} navLinks={navLinks} />
       <main className="container">
         <CurrencyToggle currency={currency} onChange={setCurrency} />
         <PortfolioCard
