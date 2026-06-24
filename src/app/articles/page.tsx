@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { ARTICLES, categoryColor } from '@/lib/articles';
 import Header from '@/components/Header';
 
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? 'https://assetinsight.pages.dev';
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? 'https://assetsinsight.net';
 
 export const metadata: Metadata = {
   title: '투자·금융 가이드 아티클 | 자산인사이트',

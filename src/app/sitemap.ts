@@ -4,7 +4,7 @@ import { ARTICLES } from '@/lib/articles';
 export const dynamic = 'force-static';
 
 const BASE_URL =
-  process.env.NEXT_PUBLIC_BASE_URL ?? 'https://assetinsight.pages.dev';
+  process.env.NEXT_PUBLIC_BASE_URL ?? 'https://assetsinsight.net';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const articleEntries: MetadataRoute.Sitemap = ARTICLES.map((a) => ({

@@ -17,7 +17,7 @@ import PensionIrpTaxDeduction from './content/PensionIrpTaxDeduction';
 import IsaAccountGuide from './content/IsaAccountGuide';
 import DividendStockInvestment from './content/DividendStockInvestment';
 
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? 'https://assetinsight.pages.dev';
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? 'https://assetsinsight.net';
 
 export function generateStaticParams() {
   return ARTICLES.map((a) => ({ slug: a.slug }));

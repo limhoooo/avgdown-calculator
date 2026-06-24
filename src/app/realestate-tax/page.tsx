@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import RealEstateTaxClient from '@/components/tax/RealEstateTaxClient';
 
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? 'https://assetinsight.pages.dev';
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? 'https://assetsinsight.net';
 
 export const metadata: Metadata = {
   title: '부동산 양도소득세 계산기 - 아파트·토지 양도세 계산 | 자산인사이트',

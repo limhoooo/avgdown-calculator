@@ -4,7 +4,7 @@ import './globals.css';
 import Footer from '@/components/Footer';
 import { ClientProviders } from '@/components/ClientProviders';
 
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? 'https://assetinsight.pages.dev';
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? 'https://assetsinsight.net';
 const ADSENSE_CLIENT = process.env.NEXT_PUBLIC_ADSENSE_CLIENT ?? 'ca-pub-3707407763414210';
 
 export const metadata: Metadata = {

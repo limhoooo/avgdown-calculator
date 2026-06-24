@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import LoanClient from '@/components/tax/LoanClient';
 
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? 'https://assetinsight.pages.dev';
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? 'https://assetsinsight.net';
 
 export const metadata: Metadata = {
   title: '대출 이자 계산기 - 원리금균등·원금균등·만기일시 | 자산인사이트',

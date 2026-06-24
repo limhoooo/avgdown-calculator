@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import StockTaxClient from '@/components/tax/StockTaxClient';
 
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? 'https://assetinsight.pages.dev';
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? 'https://assetsinsight.net';
 
 export const metadata: Metadata = {
   title: '해외주식 양도소득세 계산기 - 미국주식 세금 계산 | 자산인사이트',

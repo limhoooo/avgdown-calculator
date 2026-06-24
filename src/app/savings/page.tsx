@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import SavingsClient from '@/components/tax/SavingsClient';
 
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? 'https://assetinsight.pages.dev';
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? 'https://assetsinsight.net';
 
 export const metadata: Metadata = {
   title: '정기예금/적금 계산기 - 세후 이자 자동 계산 | 자산인사이트',

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import HoldingTaxClient from '@/components/tax/HoldingTaxClient';
 
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? 'https://assetinsight.pages.dev';
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? 'https://assetsinsight.net';
 
 export const metadata: Metadata = {
   title: '보유세 계산기 - 재산세·종합부동산세 자동 계산 | 자산인사이트',

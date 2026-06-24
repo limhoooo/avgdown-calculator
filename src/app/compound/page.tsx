@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import CompoundClient from '@/components/tax/CompoundClient';
 
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? 'https://assetinsight.pages.dev';
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? 'https://assetsinsight.net';
 
 export const metadata: Metadata = {
   title: '복리 계산기 - 투자 미래가치·현재가치 계산 | 자산인사이트',

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import HomeClient from '@/components/HomeClient';
 
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? 'https://assetinsight.pages.dev';
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? 'https://assetsinsight.net';
 
 export const metadata: Metadata = {
   title: '물타기 계산기 - 주식 평균단가 계산기 | 자산인사이트',

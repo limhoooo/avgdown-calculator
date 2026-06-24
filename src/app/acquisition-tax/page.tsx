@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import AcquisitionTaxClient from '@/components/tax/AcquisitionTaxClient';
 
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? 'https://assetinsight.pages.dev';
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? 'https://assetsinsight.net';
 
 export const metadata: Metadata = {
   title: '취득세 계산기 - 부동산 취득세 자동 계산 | 자산인사이트',
